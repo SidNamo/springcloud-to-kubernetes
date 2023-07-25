@@ -1,47 +1,21 @@
 version: '2.1'
 services:
   front:
-    environment:
-      CONFIG_SERVICE_PASSWORD: password
     build: front
     restart: always
-    depends_on:
-      config:
-        condition: service_healthy
     ports:
       - 80:4000
-    logging:
-      options:
-        max-size: "10m"
-        max-file: "10"
 
   banner-service:
-    environment:
-      CONFIG_SERVICE_PASSWORD: password
     build: banner-service
     restart: always
-    depends_on:
-      config:
-        condition: service_healthy
-    logging:
-      options:
-        max-size: "10m"
-        max-file: "10"
 
   account-service:
     environment:
-      CONFIG_SERVICE_PASSWORD: password
       ACCOUNT_SERVICE_PASSWORD: password
       MONGODB_PASSWORD: password
     build: account-service
     restart: always
-    depends_on:
-      config:
-        condition: service_healthy
-    logging:
-      options:
-        max-size: "10m"
-        max-file: "10"
 
   account-mongodb:
     environment:
@@ -49,7 +23,3 @@ services:
       MONGODB_PASSWORD: password
     build: mongodb
     restart: always
-    logging:
-      options:
-        max-size: "10m"
-        max-file: "10"
