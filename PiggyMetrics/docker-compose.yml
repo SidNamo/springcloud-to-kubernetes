@@ -9,6 +9,8 @@ services:
   banner-service:
     build: banner-service
     restart: always
+    ports:
+      - 9090:9090
 
   account-service:
     environment:
@@ -16,6 +18,8 @@ services:
       MONGODB_PASSWORD: password
     build: account-service
     restart: always
+    ports:
+      - 6000:6000
 
   account-mongodb:
     environment:
