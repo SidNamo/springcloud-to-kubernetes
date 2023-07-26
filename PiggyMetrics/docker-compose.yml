@@ -36,6 +36,8 @@ services:
       MONGODB_PASSWORD: $MONGODB_PASSWORD
     build: mongodb
     restart: always
+    networks:
+      - test
     
 networks:
   test:
