@@ -14,7 +14,7 @@ services:
     build: banner-service
     restart: always
     ports:
-      - 9090:9090
+      - 80:9090
     networks:
       - test
 
@@ -26,7 +26,7 @@ services:
     build: account-service
     restart: always
     ports:
-      - 6000:6000
+      - 80:6000
     networks:
       - test
 
