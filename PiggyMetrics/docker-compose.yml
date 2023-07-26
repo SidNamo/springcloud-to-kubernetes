@@ -1,18 +1,25 @@
 version: '2.1'
 services:
   front:
+    container_name: front
     build: front
     restart: always
     ports:
       - 80:4000
+    networks:
+      - test
 
   banner-service:
+    container_name: banners
     build: banner-service
     restart: always
     ports:
       - 9090:9090
+    networks:
+      - test
 
   account-service:
+    container_name: accounts
     environment:
       ACCOUNT_SERVICE_PASSWORD: password
       MONGODB_PASSWORD: password
@@ -20,6 +27,8 @@ services:
     restart: always
     ports:
       - 6000:6000
+    networks:
+      - test
 
   account-mongodb:
     environment:
@@ -27,3 +36,7 @@ services:
       MONGODB_PASSWORD: password
     build: mongodb
     restart: always
+    
+networks:
+  test:
+    name: test
