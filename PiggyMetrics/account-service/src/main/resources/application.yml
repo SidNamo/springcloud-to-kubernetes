@@ -3,7 +3,7 @@ spring:
     mongodb:
       host: account-mongodb
       username: user
-      password: password
+      password: ${MONGODB_PASSWORD}
       database: piggymetrics
       port: 27017
 
