@@ -80,7 +80,7 @@ $(window).load(function(){
         global.mobileClient = true;
 	}
 
-    $.getJSON("https://api.exchangeratesapi.io/latest?access_key=0d04747586f9e9c6ff3ce60f8f747630&base=RUB&symbols=EUR,USD", function( data ) {
+    $.getJSON("https://api.exchangeratesapi.io/latest?access_key={access_key}=RUB&symbols=EUR,USD", function( data ) {
         global.eur = 1 / data.rates.EUR;
         global.usd = 1 / data.rates.USD;
     });
